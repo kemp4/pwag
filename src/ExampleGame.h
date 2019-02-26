@@ -37,5 +37,6 @@ protected:
     void checkCollisions();
 
 	bool checkCollision(Enemy *enemy);
+
 };
 

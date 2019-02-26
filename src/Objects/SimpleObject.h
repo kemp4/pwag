@@ -4,7 +4,6 @@
 #include "src/ResoureManagment/Texture.h"
 #include "src/ResoureManagment/VaoObject.h"
 #include "list"
-#include"tinyxml2.h"
 
 class SimpleObject :
 	public AbstractGameObject

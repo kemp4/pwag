@@ -71,14 +71,19 @@ void ExampleGame::loadTextures() const {
 	ResourceManager::LoadTexture("triangles.png", GL_TRUE, "texture1");
     ResourceManager::LoadTexture("particle.png", GL_TRUE, "texture2");
 	ResourceManager::LoadTexture("road.png", GL_TRUE, "texture3");
+    ResourceManager::LoadTexture("water.jpg", GL_TRUE, "texture4");
+    ResourceManager::LoadTexture("texture.jpg", GL_TRUE, "texture5");
+    ResourceManager::LoadTexture("flovers.jpg", GL_TRUE, "texture6");
+
 
 }
 
 
 void ExampleGame::update()
 {
+
+    Game::update();
     if(options.paused) {
-        Game::update();
         newTime = std::clock();
         deltaTime = (double) (newTime - oldTime) / (double) CLOCKS_PER_SEC;
         oldTime = std::clock();
@@ -166,7 +171,9 @@ void ExampleGame::spawnEnemy() {
 	Shader* shader = ResourceManager::GetShader("shader1");
 	float generatedRand = (float)(rand()%55)/10.f-2.75f;
 	cout << generatedRand << "\n";
-	AbstractGameObject * newEnemy = new Enemy(glm::vec3(5*6, 0, generatedRand),shader, ResourceManager::GetTexture("texture1"), ResourceManager::getVAO("player"));
+    int rendTextureNum = rand() % 6 + 1;
+    string randTextureName = "texture" + std::to_string(rendTextureNum);
+	AbstractGameObject * newEnemy = new Enemy(glm::vec3(5*6, 0, generatedRand),shader, ResourceManager::GetTexture(randTextureName), ResourceManager::getVAO("player"));
 	gameObjects.push_front(newEnemy);
 }
 

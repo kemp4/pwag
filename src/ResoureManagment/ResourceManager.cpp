@@ -239,7 +239,6 @@ glm::ivec3 ResourceManager::strVertextoVec3(string s)
 	int vinf[] = {0,0,0};
 	int index=0;
 	for (int i = 0; i < s.size(); i++) {
-		
 		if (s[i] == 47) {
 			index++;
 		}else{
